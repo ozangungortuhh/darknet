@@ -33,6 +33,5 @@ class DetectImages():
             cv2.waitKey(1)
 
 if __name__ == '__main__':
-
     di = DetectImages()
     di.display_detection()
