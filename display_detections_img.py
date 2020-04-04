@@ -4,7 +4,7 @@ import sys
 import darknet
 
 CONFIG = "cfg/yolov3.cfg"
-WEIGHTS = "yolov3.weights"
+WEIGHTS = "weights/yolov3.weights"
 DATA = "cfg/coco.data"
 
 THRESH = 0.2
@@ -25,6 +25,7 @@ class DetectImages():
             ymin = int(coords[1] - coords[3]/2)
             ymax = int(coords[1] + coords[3]/2)
             cv2.rectangle(cv_img, (xmin,ymin), (xmax,ymax), (0,255,0), 1)
+            cv2.putText(cv_img, label, (xmin, ymin-10), cv2.FONT_HERSHEY_SIMPLEX , 0.8, (0, 255, 0), 2, cv2.LINE_AA)
         
         cv2.imshow("window", cv_img)
         cv2.waitKey(0)
